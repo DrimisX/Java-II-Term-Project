@@ -1,0 +1,97 @@
+package cpd.pkg4414.assignment;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+/**
+ *
+ * @author Jeff Codling - c0471944
+ */
+public class Order {
+    
+    private String customerId;
+    private String customerName;
+    private Date timeRecieved;
+    private Date timeProcessed;
+    private Date timeFullfilled;
+    private List<Purchase> purchases = new ArrayList<>();
+    private String notes;
+
+    public Order() {
+        this.customerId = "";
+        this.customerName = "";
+        this.timeRecieved = null;
+        this.timeProcessed = null;
+        this.timeFullfilled = null;
+        this.purchases = null;
+        this.notes = "";
+    }
+
+    public Order(String customerId, String customerName, Date timeRecieved, Date timeProcessed, Date timeFullfilled, ArrayList<Purchase> purchases, String notes) {
+        this.customerId = customerId;
+        this.customerName = customerName;
+        this.timeRecieved = timeRecieved;
+        this.timeProcessed = timeProcessed;
+        this.timeFullfilled = timeFullfilled;
+        this.purchases = purchases;
+        this.notes = notes;
+    }
+
+    public String getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public Date getTimeRecieved() {
+        return timeRecieved;
+    }
+
+    public void setTimeRecieved(Date timeRecieved) {
+        this.timeRecieved = timeRecieved;
+    }
+
+    public Date getTimeProcessed() {
+        return timeProcessed;
+    }
+
+    public void setTimeProcessed(Date timeProcessed) {
+        this.timeProcessed = timeProcessed;
+    }
+
+    public Date getTimeFullfilled() {
+        return timeFullfilled;
+    }
+
+    public void setTimeFullfilled(Date timeFullfilled) {
+        this.timeFullfilled = timeFullfilled;
+    }
+
+    public List<Purchase> getPurchases() {
+        return purchases;
+    }
+
+    public void setPurchases(List<Purchase> purchases) {
+        this.purchases = purchases;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
+}
