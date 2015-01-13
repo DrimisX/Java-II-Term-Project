@@ -9,6 +9,7 @@ package cpd.pkg4414.assignment;
 /**
  *
  * @author Jeff Codling - c0471944 - Lambton College CPRO
+ * @author Kyle Crossman - c0621990 - Lambton College CPRO
  */
 public class CPD4414Assignment {
 
@@ -16,7 +17,6 @@ public class CPD4414Assignment {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
     }
-
 }

@@ -3,6 +3,7 @@ package cpd.pkg4414.assignment;
 /**
  *
  * @author Jeff Codling - c0471944
+ * @author Kyle Crossman - c0621990
  */
 class Purchase {
     private int productId;

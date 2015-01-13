@@ -7,6 +7,7 @@ import java.util.List;
 /**
  *
  * @author Jeff Codling - c0471944
+ * @author Kyle Crossman - c0621990
  */
 public class Order {
     
