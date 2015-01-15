@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author c0621990
+ * @author Kyle Crossman - c0621990
  */
 public class OrderQueueTest {
     
