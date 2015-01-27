@@ -18,7 +18,7 @@ public class OrderQueue {
     
     public void addOrder(Order orderToAdd) {
         orderQueue.addLast(orderToAdd);
-        orderToAdd.setTimeRecieved(new Date());
+        orderToAdd.setTimeReceived(new Date());
     }
     
     public Order getNextOrder() {

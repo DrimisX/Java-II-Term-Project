@@ -52,7 +52,7 @@ public class OrderQueueTest {
         orderQueue.addOrder(order);
         
         long expResult = new Date().getTime();
-        long result = order.getTimeRecieved().getTime();
+        long result = order.getTimeReceived().getTime();
         assertTrue(Math.abs(result - expResult) < 1000);
     }
     /**

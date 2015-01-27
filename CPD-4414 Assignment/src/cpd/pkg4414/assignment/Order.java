@@ -40,11 +40,11 @@ public class Order {
         this.customerName = customerName;
     }
 
-    public Date getTimeRecieved() {
+    public Date getTimeReceived() {
         return timeRecieved;
     }
 
-    public void setTimeRecieved(Date timeRecieved) {
+    public void setTimeReceived(Date timeRecieved) {
         this.timeRecieved = timeRecieved;
     }
 
