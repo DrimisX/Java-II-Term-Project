@@ -26,7 +26,7 @@ public class OrderTest {
         Purchase purchase = new Purchase(132,500);
         ArrayList<Purchase> purchases = new ArrayList<>();
         purchases.add(purchase);
-        Order order = new Order("ABC123","Sample name",Date.valueOf("2014-12-01"),null,null,purchases,"Test Order");
+        Order order = new Order("ABC123","Sample name");
         
         // not done yet
     }
