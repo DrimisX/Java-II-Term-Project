@@ -6,6 +6,7 @@
 
 package cpd.pkg4414.assignment;
 
+import java.util.Date;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -48,10 +49,10 @@ public class OrderQueueTest {
         Order order = new Order("C0000001", "TEST Inc.");
         order.addPurchase(new Purchase("PLC000001", 100));
         order.addPurchase(new Purchase("PLC000002", 200));
-        orderQueue.add(order);
+        orderQueue.addOrder(order);
         
         long expResult = new Date().getTime();
-        long result = order.getTimeReceived().getTime();
+        long result = order.getTimeRecieved().getTime();
         assertTrue(Math.abs(result - expResult) < 1000);
     }
     /**
