@@ -19,16 +19,6 @@ public class Order {
     private List<Purchase> purchases = new ArrayList<>();
     private String notes;
 
-    public Order() {
-        this.customerId = "";
-        this.customerName = "";
-        this.timeRecieved = null;
-        this.timeProcessed = null;
-        this.timeFullfilled = null;
-        this.purchases = null;
-        this.notes = "";
-    }
-
     public Order(String customerId, String customerName) {
         this.customerId = customerId;
         this.customerName = customerName;

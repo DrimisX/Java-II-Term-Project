@@ -16,6 +16,7 @@ import static org.junit.Assert.*;
 /**
  *
  * @author Kyle Crossman - c0621990
+ * @author Dylan Huculak - c0630163
  */
 public class OrderQueueTest {
     
@@ -37,7 +38,22 @@ public class OrderQueueTest {
     @After
     public void tearDown() {
     }
-
+    
+    /**
+     * Test of whenCustomerExistsAndPurchaseExistsThenTimeReceivedIsNow method, of class OrderQueue.
+     */
+    @Test
+    public void testWhenCustomerExistsAndPurchaseExistsThenTimeReceivedIsNow() {
+        OrderQueue orderQueue = new OrderQueue();
+        Order order = new Order("C0000001", "TEST Inc.");
+        order.addPurchase(new Purchase("PLC000001", 100));
+        order.addPurchase(new Purchase("PLC000002", 200));
+        orderQueue.add(order);
+        
+        long expResult = new Date().getTime();
+        long result = order.getTimeReceived().getTime();
+        assertTrue(Math.abs(result - expResult) < 1000);
+    }
     /**
      * Test of addOrder method, of class OrderQueue.
      */
