@@ -29,14 +29,9 @@ public class Order {
         this.notes = "";
     }
 
-    public Order(String customerId, String customerName, Date timeRecieved, Date timeProcessed, Date timeFullfilled, ArrayList<Purchase> purchases, String notes) {
+    public Order(String customerId, String customerName) {
         this.customerId = customerId;
         this.customerName = customerName;
-        this.timeRecieved = timeRecieved;
-        this.timeProcessed = timeProcessed;
-        this.timeFullfilled = timeFullfilled;
-        this.purchases = purchases;
-        this.notes = notes;
     }
 
     public String getCustomerId() {
