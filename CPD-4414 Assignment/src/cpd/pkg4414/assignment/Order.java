@@ -79,5 +79,9 @@ public class Order {
     public void setNotes(String notes) {
         this.notes = notes;
     }
+    
+    public void addPurchase(Purchase p) {
+        purchases.add(p);
+    }
 
 }
