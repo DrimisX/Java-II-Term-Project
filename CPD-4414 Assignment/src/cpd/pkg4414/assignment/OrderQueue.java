@@ -7,6 +7,7 @@
 package cpd.pkg4414.assignment;
 
 import java.util.ArrayDeque;
+import java.util.Date;
 
 /**
  *
@@ -17,6 +18,7 @@ public class OrderQueue {
     
     public void addOrder(Order orderToAdd) {
         orderQueue.addLast(orderToAdd);
+        orderToAdd.setTimeRecieved(new Date());
     }
     
     public Order getNextOrder() {

@@ -6,24 +6,24 @@ package cpd.pkg4414.assignment;
  * @author Kyle Crossman - c0621990
  */
 class Purchase {
-    private int productId;
+    private String productId;
     private int quantity;
 
     public Purchase() {
-        this.productId = 0;
+        this.productId = "";
         this.quantity = 0;
     }
     
-    public Purchase(int productId, int quantity) {
+    public Purchase(String productId, int quantity) {
         this.productId = productId;
         this.quantity = quantity;
     }
 
-    public int getProductId() {
+    public String getProductId() {
         return productId;
     }
 
-    public void setProductId(int productId) {
+    public void setProductId(String productId) {
         this.productId = productId;
     }
 
