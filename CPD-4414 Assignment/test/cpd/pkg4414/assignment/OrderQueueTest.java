@@ -63,6 +63,9 @@ public class OrderQueueTest {
      */
     @Test
     public void testWhenNewOrderArrivesAndListOfPurchasesNotExistThenThrowException() {
+        OrderQueue orderQueue = new OrderQueue();
+        Order order = new Order("C0000001", "TEST Inc.");
+        orderQueue.addOrder(order);
         
     }
     
