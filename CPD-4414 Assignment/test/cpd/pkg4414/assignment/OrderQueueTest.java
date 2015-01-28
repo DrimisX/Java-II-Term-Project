@@ -41,7 +41,8 @@ public class OrderQueueTest {
     }
     
     /**
-     * Test of whenCustomerExistsAndPurchaseExistsThenTimeReceivedIsNow method, of class OrderQueue.
+     * Test that 'Given a new order arrives, when either customer ID or customer name exists,
+     * and there is a list of purchases, then time received is set to now.'
      */
     @Test
     public void testWhenCustomerExistsAndPurchaseExistsThenTimeReceivedIsNow() {
@@ -57,7 +58,17 @@ public class OrderQueueTest {
     }
     
     /**
-     * Test of whenRequestNextOrderAndOrderNotExistThenReturnNull method, of class OrderQueue
+     * Test that 'Given a new order arrives, when there is no list of purchases,
+     * then throw an exception.'
+     */
+    @Test
+    public void testWhenNewOrderArrivesAndListOfPurchasesNotExistThenThrowException() {
+        
+    }
+    
+    /**
+     * Test that 'Given a request for the next order, when there are no orders in the system,
+     * then return null.'
      */
     @Test
     public void testWhenRequestNextOrderAndOrderNotExistThenReturnNull() {
@@ -68,5 +79,7 @@ public class OrderQueueTest {
         
         assertEquals(expResult, returnedOrder);
     }
+    
+    
     
 }
