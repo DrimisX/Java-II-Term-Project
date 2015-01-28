@@ -42,9 +42,10 @@ public class OrderQueueTest {
     
     /**
      * Test of whenCustomerExistsAndPurchaseExistsThenTimeReceivedIsNow method, of class OrderQueue.
+     * @throws java.lang.Exception
      */
     @Test
-    public void testWhenCustomerExistsAndPurchaseExistsThenTimeReceivedIsNow() {
+    public void testWhenCustomerExistsAndPurchaseExistsThenTimeReceivedIsNow() throws Exception {
         OrderQueue orderQueue = new OrderQueue();
         Order order = new Order("C0000001", "TEST Inc.");
         order.addPurchase(new Purchase("PLC000001", 100));
@@ -54,5 +55,26 @@ public class OrderQueueTest {
         long expResult = new Date().getTime();
         long result = order.getTimeReceived().getTime();
         assertTrue(Math.abs(result - expResult) < 1000);
+    }
+    
+    /**
+     * Test of NewOrderArrivesWithNoIdOrNameExists method, of class OrderQueue
+     * @throws java.lang.Exception
+     */
+    @Test
+    public void testNewOrderArrivesWithNoIdOrNameExists() throws Exception {
+        OrderQueue orderQueue = new OrderQueue();
+        Order order = new Order(null,null);
+        order.addPurchase(new Purchase("PLC000001",100));
+        order.addPurchase(new Purchase("PLC000002",200));
+        
+        boolean flag = false;
+        
+        try {
+            orderQueue.addOrder(order);
+        } catch (Exception ex) {
+            flag = true;
+        }
+        assertTrue(flag);
     }
 }

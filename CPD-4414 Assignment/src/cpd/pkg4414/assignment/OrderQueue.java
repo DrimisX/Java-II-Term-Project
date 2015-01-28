@@ -16,9 +16,14 @@ import java.util.Date;
 public class OrderQueue {
     ArrayDeque<Order> orderQueue = new ArrayDeque<>();
     
-    public void addOrder(Order orderToAdd) {
-        orderQueue.addLast(orderToAdd);
-        orderToAdd.setTimeReceived(new Date());
+    public void addOrder(Order orderToAdd) throws Exception {
+        if(orderToAdd.getCustomerId().isEmpty() || orderToAdd.getCustomerName().isEmpty()) {
+            throw new Exception("Customer Name or Customer ID not defined");
+        } else {
+            orderQueue.addLast(orderToAdd);
+            orderToAdd.setTimeReceived(new Date());
+        }
+        
     }
     
     public Order getNextOrder() {
