@@ -58,18 +58,6 @@ public class OrderQueueTest {
     }
     
     /**
-     * Test that 'Given a new order arrives, when there is no list of purchases,
-     * then throw an exception.'
-     */
-    @Test
-    public void testWhenNewOrderArrivesAndListOfPurchasesNotExistThenThrowException() {
-        OrderQueue orderQueue = new OrderQueue();
-        Order order = new Order("C0000001", "TEST Inc.");
-        orderQueue.addOrder(order);
-        
-    }
-    
-    /**
      * Test that 'Given a request for the next order, when there are no orders in the system,
      * then return null.'
      */
@@ -89,6 +77,20 @@ public class OrderQueueTest {
         }
         assertTrue(flag);
     }
+    
+    /**
+     * Test that 'Given a new order arrives, when there is no list of purchases,
+     * then throw an exception.'
+     */
+    @Test
+    public void testWhenNewOrderArrivesAndListOfPurchasesNotExistThenThrowException() {
+        OrderQueue orderQueue = new OrderQueue();
+        Order order = new Order("C0000001", "TEST Inc.");
+        orderQueue.addOrder(order);
+        
+    }
+    
+    
     
     
     
