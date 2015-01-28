@@ -57,29 +57,7 @@ public class OrderQueueTest {
         
         assertTrue(Math.abs(result - expResult) < 1000);
     }
-    
-    /**
-     * Test that 'Given a new order arrives, when there is no list of purchases,
-     * then throw an exception.'
-     */
-    @Test
-    public void testWhenNewOrderArrivesAndListOfPurchasesNotExistThenThrowException() {
-        OrderQueue orderQueue = new OrderQueue();
-        Order order = new Order("C0000001", "TEST Inc.");
-        orderQueue.addOrder(order);
-        
-    }
-    
-    /**
-     * Test that 'Given a request for the next order, when there are orders in the system,
-     * then return the order with the earliest time received that does not have a time processed.'
-     */
-    //@ Test HERE
-    
-    /**
-     * Test that 'Given a request for the next order, when there are no orders in the system,
-     * then return null.'
-     */
+
     @Test
     public void testNewOrderArrivesWithNoIdOrNameExists() throws Exception {
         OrderQueue orderQueue = new OrderQueue();
@@ -98,7 +76,20 @@ public class OrderQueueTest {
     }
     
     /**
-     * Test of NextOrderExistsReturnEarliestOrderNotProcessed method, of class OrderQueue
+     * Test that 'Given a new order arrives, when there is no list of purchases,
+     * then throw an exception.'
+     */
+    @Test
+    public void testWhenNewOrderArrivesAndListOfPurchasesNotExistThenThrowException() throws Exception {
+        OrderQueue orderQueue = new OrderQueue();
+        Order order = new Order("C0000001", "TEST Inc.");
+        orderQueue.addOrder(order);
+        
+    }
+    
+    /**
+     * Test that 'Given a request for the next order, when there are orders in the system,
+     * then return the order with the earliest time received that does not have a time processed.'
      */
     @Test
     public void testNextOrderExistsReturnEarliestOrderNotProcessed() throws Exception {
