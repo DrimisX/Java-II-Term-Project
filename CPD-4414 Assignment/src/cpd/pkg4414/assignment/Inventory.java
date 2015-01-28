@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package cpd4414.assign2;
+package cpd.pkg4414.assignment;
 
 import java.sql.*;
 
@@ -21,7 +21,6 @@ import java.sql.*;
  * This class is a wrapper around the Inventory table.
  *
  * @author Len Payne <len.payne@lambtoncollege.ca>
- * @author Jeff Codling - c0471944 (modified to work with our classes)
  */
 public class Inventory {
 
