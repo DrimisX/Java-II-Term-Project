@@ -45,7 +45,7 @@ public class OrderQueueTest {
      * and there is a list of purchases, then time received is set to now.'
      */
     @Test
-    public void testWhenCustomerExistsAndPurchaseExistsThenTimeReceivedIsNow() {
+    public void testWhenCustomerExistsAndPurchaseExistsThenTimeReceivedIsNow() throws Exception {
         OrderQueue orderQueue = new OrderQueue();
         Order order = new Order("C0000001", "TEST Inc.");
         order.addPurchase(new Purchase("PLC000001", 100));
@@ -74,13 +74,20 @@ public class OrderQueueTest {
      * then return null.'
      */
     @Test
-    public void testWhenRequestNextOrderAndOrderNotExistThenReturnNull() {
-        System.out.println("getNextOrder");
-        OrderQueue instance = new OrderQueue();
-        Order expResult = null;
-        Order returnedOrder = instance.getNextOrder();
+    public void testNewOrderArrivesWithNoIdOrNameExists() throws Exception {
+        OrderQueue orderQueue = new OrderQueue();
+        Order order = new Order(null,null);
+        order.addPurchase(new Purchase("PLC000001",100));
+        order.addPurchase(new Purchase("PLC000002",200));
         
-        assertEquals(expResult, returnedOrder);
+        boolean flag = false;
+        
+        try {
+            orderQueue.addOrder(order);
+        } catch (Exception ex) {
+            flag = true;
+        }
+        assertTrue(flag);
     }
     
     
