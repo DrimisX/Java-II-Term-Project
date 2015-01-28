@@ -58,6 +58,12 @@ public class OrderQueueTest {
         assertTrue(Math.abs(result - expResult) < 1000);
     }
 
+    /**
+     * Given a new order arrives, when neither customer ID nor customer name
+     * exists, then throw an exception.
+     * 
+     * @throws Exception - No customer name or ID set
+     */
     @Test
     public void testNewOrderArrivesWithNoIdOrNameExists() throws Exception {
         OrderQueue orderQueue = new OrderQueue();
@@ -108,7 +114,9 @@ public class OrderQueueTest {
     }
     
     /**
-     * Test of ProcessOrderNoTimeRecievedInStockSetTimeProcessedToNow
+     * Given a request to process an order, when the order has a time receive
+     * and all of the purchases are in-stock in the inventory table, then set
+     * the time processed to now.
      */
     @Test
     public void testProcessOrderNoTimeRecievedInStockSetTimeProcessedToNow() throws Exception {
@@ -120,6 +128,9 @@ public class OrderQueueTest {
         
         Order nextOrder = orderQueue.getNextOrder();
         List<Purchase> purchases = nextOrder.getPurchases();
+        
+        // Interate through purchases and check for stock in inventory
+        // If inventory then set time processed to now
         
         assertTrue(true);
     }
