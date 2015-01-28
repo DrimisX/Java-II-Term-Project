@@ -10,7 +10,7 @@ import java.util.ArrayDeque;
 import java.util.Date;
 
 /**
- *
+ * @author Jeff Codling - c0471944
  * @author Kyle Crossman - c0621990
  */
 public class OrderQueue {

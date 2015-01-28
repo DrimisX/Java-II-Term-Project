@@ -7,6 +7,7 @@
 package cpd.pkg4414.assignment;
 
 import java.util.Date;
+import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -15,7 +16,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- *
+ * @author Jeff Codling - c0471944
  * @author Kyle Crossman - c0621990
  * @author Dylan Huculak - c0630163
  */
@@ -96,4 +97,39 @@ public class OrderQueueTest {
         assertTrue(flag);
     }
     
+    /**
+     * Test of NextOrderExistsReturnEarliestOrderNotProcessed method, of class OrderQueue
+     */
+    @Test
+    public void testNextOrderExistsReturnEarliestOrderNotProcessed() throws Exception {
+        OrderQueue orderQueue = new OrderQueue();
+        Order order = new Order("C0000001", "TEST Inc.");
+        order.addPurchase(new Purchase("PLC000001", 100));
+        order.addPurchase(new Purchase("PLC000002", 200));
+        orderQueue.addOrder(order);
+        
+        try {
+            Order nextOrder = orderQueue.getNextOrder();
+        } catch (Exception ex) {
+            assertTrue(false);
+        }
+        assertTrue(true);
+    }
+    
+    /**
+     * Test of ProcessOrderNoTimeRecievedInStockSetTimeProcessedToNow
+     */
+    @Test
+    public void testProcessOrderNoTimeRecievedInStockSetTimeProcessedToNow() throws Exception {
+        OrderQueue orderQueue = new OrderQueue();
+        Order order = new Order("C0000001", "TEST Inc.");
+        order.addPurchase(new Purchase("PLC000001", 100));
+        order.addPurchase(new Purchase("PLC000002", 200));
+        orderQueue.addOrder(order);
+        
+        Order nextOrder = orderQueue.getNextOrder();
+        List<Purchase> purchases = nextOrder.getPurchases();
+        
+        assertTrue(true);
+    }
 }

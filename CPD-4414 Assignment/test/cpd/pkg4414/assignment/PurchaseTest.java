@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author jeff
+ * @author Jeff Codling - c0471944
  */
 public class PurchaseTest {
     
