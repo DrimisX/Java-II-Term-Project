@@ -50,9 +50,9 @@ public class OrderQueueTest {
         order.addPurchase(new Purchase("PLC000001", 100));
         order.addPurchase(new Purchase("PLC000002", 200));
         orderQueue.addOrder(order);
-        
         long expResult = new Date().getTime();
         long result = order.getTimeReceived().getTime();
+        
         assertTrue(Math.abs(result - expResult) < 1000);
     }
     
@@ -69,18 +69,4 @@ public class OrderQueueTest {
         assertEquals(expResult, returnedOrder);
     }
     
-    @Test
-    public void processOrderHasTimeRecievedThenSetTimeProccessedToNow() {
-        
-    }
-    
-    @Test
-    public void processOrderNotHaveTimeRecievedThenThrowException() {
-        
-    }
-    
-    @Test
-    public void fuffillOrderHasTimeRecievedAndTimeProcessedThenSetTimeFulfilledToNow() {
-        
-    }
 }
