@@ -42,9 +42,11 @@ public class OrderQueueTest {
     }
     
     /**
-     * BEHAVIOUR 1 - Dylan
+     * BEHAVIOUR 1 - Len's Example
      * Test that 'Given a new order arrives, when either customer ID or customer name exists,
      * and there is a list of purchases, then time received is set to now.'
+     * 
+     * @throws Exception - addOrder is customer ID or name is not set
      */
     @Test
     public void testWhenCustomerExistsAndPurchaseExistsThenTimeReceivedIsNow() throws Exception {
@@ -61,6 +63,9 @@ public class OrderQueueTest {
 
     /**
      * BEHAVIOUR 2 - Jeff
+     * Given a new order arrives, when neither customer ID nor customer name exists,
+     * then throw an exception
+     * 
      * @throws Exception 
      */
     @Test
@@ -84,6 +89,8 @@ public class OrderQueueTest {
      * BEAVIOUR 3 - Dylan
      * Test that 'Given a new order arrives, when there is no list of purchases,
      * then throw an exception.'
+     * 
+     * @throws Exception - addOrder if customer ID or name is not set
      */
     @Test
     public void testWhenNewOrderArrivesAndListOfPurchasesNotExistThenThrowException() throws Exception {
@@ -97,6 +104,8 @@ public class OrderQueueTest {
      * BEHAVIOUR 4 - Jeff
      * Test that 'Given a request for the next order, when there are orders in the system,
      * then return the order with the earliest time received that does not have a time processed.'
+     * 
+     * @throws Exception - getNextOrder has no orders
      */
     @Test
     public void testNextOrderExistsReturnEarliestOrderNotProcessed() throws Exception {
@@ -122,7 +131,11 @@ public class OrderQueueTest {
     
     /**
      * BEHAVIOUR 6 - Jeff
-     * Test of ProcessOrderNoTimeRecievedInStockSetTimeProcessedToNow
+     * Given a request to process an order, when the order has a time received
+     * and all the purchases are in-stock in the inventory table, then set the
+     * time processed to now.
+     * 
+     * @throws Exception - addOrder if customer ID or name is not set
      */
     @Test
     public void testProcessOrderNoTimeRecievedInStockSetTimeProcessedToNow() throws Exception {
@@ -134,6 +147,9 @@ public class OrderQueueTest {
         
         Order nextOrder = orderQueue.getNextOrder();
         List<Purchase> purchases = nextOrder.getPurchases();
+        
+        // Interate through purchases and check for stock in the inventory
+        // If there is stock, set time processed to now
         
         assertTrue(true);
     }
