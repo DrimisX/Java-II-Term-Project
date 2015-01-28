@@ -58,6 +58,27 @@ public class OrderQueueTest {
     }
     
     /**
+     * Test that 'Given a request for the next order, when there are no orders in the system,
+     * then return null.'
+     */
+    @Test
+    public void testNewOrderArrivesWithNoIdOrNameExists() throws Exception {
+        OrderQueue orderQueue = new OrderQueue();
+        Order order = new Order(null,null);
+        order.addPurchase(new Purchase("PLC000001",100));
+        order.addPurchase(new Purchase("PLC000002",200));
+        
+        boolean flag = false;
+        
+        try {
+            orderQueue.addOrder(order);
+        } catch (Exception ex) {
+            flag = true;
+        }
+        assertTrue(flag);
+    }
+    
+    /**
      * Test that 'Given a new order arrives, when there is no list of purchases,
      * then throw an exception.'
      */
@@ -68,6 +89,12 @@ public class OrderQueueTest {
         orderQueue.addOrder(order);
         
     }
+    
+    /**
+     * Test that 'Given a request for the next order, when there are orders in the system,
+     * then return the order with the earliest time received that does not have a time processed.'
+     */
+    //@ Test HERE
     
     /**
      * Test that 'Given a request for the next order, when there are no orders in the system,
@@ -89,7 +116,5 @@ public class OrderQueueTest {
         }
         assertTrue(flag);
     }
-    
-    
     
 }
