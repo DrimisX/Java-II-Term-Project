@@ -55,21 +55,12 @@ public class OrderQueueTest {
         long result = order.getTimeReceived().getTime();
         assertTrue(Math.abs(result - expResult) < 1000);
     }
+    
     /**
-     * Test of addOrder method, of class OrderQueue.
+     * Test of whenRequestNextOrderAndOrderNotExistThenReturnNull method, of class OrderQueue
      */
     @Test
-    public void testAddOrder() {
-        System.out.println("addOrder");
-        Order orderToAdd = null;
-        OrderQueue instance = new OrderQueue();
-        instance.addOrder(orderToAdd);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-    
-    @Test
-    public void requestNextOrderNoNextOrderReturnNull() {
+    public void testWhenRequestNextOrderAndOrderNotExistThenReturnNull() {
         System.out.println("getNextOrder");
         OrderQueue instance = new OrderQueue();
         Order expResult = null;
