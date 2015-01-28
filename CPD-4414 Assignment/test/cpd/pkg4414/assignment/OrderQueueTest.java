@@ -7,6 +7,7 @@
 package cpd.pkg4414.assignment;
 
 import java.util.Date;
+import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -108,11 +109,9 @@ public class OrderQueueTest {
         order.addPurchase(new Purchase("PLC000002", 200));
         orderQueue.addOrder(order);
         
-        try {
-            Order nextOrder = orderQueue.getNextOrder();
-        } catch (Exception ex) {
-            assertTrue(false);
-        }
+        Order nextOrder = orderQueue.getNextOrder();
+        List<Purchase> purchases = nextOrder.getPurchases();
+        
         assertTrue(true);
     }
 }
