@@ -42,6 +42,7 @@ public class OrderQueueTest {
     }
     
     /**
+     * BEHAVIOUR 1 - Dylan
      * Test that 'Given a new order arrives, when either customer ID or customer name exists,
      * and there is a list of purchases, then time received is set to now.'
      */
@@ -58,6 +59,10 @@ public class OrderQueueTest {
         assertTrue(Math.abs(result - expResult) < 1000);
     }
 
+    /**
+     * BEHAVIOUR 2 - Jeff
+     * @throws Exception 
+     */
     @Test
     public void testNewOrderArrivesWithNoIdOrNameExists() throws Exception {
         OrderQueue orderQueue = new OrderQueue();
@@ -76,6 +81,7 @@ public class OrderQueueTest {
     }
     
     /**
+     * BEAVIOUR 3 - Dylan
      * Test that 'Given a new order arrives, when there is no list of purchases,
      * then throw an exception.'
      */
@@ -88,6 +94,7 @@ public class OrderQueueTest {
     }
     
     /**
+     * BEHAVIOUR 4 - Jeff
      * Test that 'Given a request for the next order, when there are orders in the system,
      * then return the order with the earliest time received that does not have a time processed.'
      */
@@ -108,6 +115,13 @@ public class OrderQueueTest {
     }
     
     /**
+     * BEHAVIOUR 5 - Dylan
+     * Test that 'Given a request for the next order, when there are no orders in the system, 
+     * then return null.'
+     */
+    
+    /**
+     * BEHAVIOUR 6 - Jeff
      * Test of ProcessOrderNoTimeRecievedInStockSetTimeProcessedToNow
      */
     @Test
@@ -123,4 +137,9 @@ public class OrderQueueTest {
         
         assertTrue(true);
     }
+    
+    /**
+     * BEHAVIOUR 7 - Dylan
+     * 
+     */
 }
