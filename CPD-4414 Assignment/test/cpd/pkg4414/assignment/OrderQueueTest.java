@@ -96,4 +96,23 @@ public class OrderQueueTest {
         }
         assertTrue(true);
     }
+    
+    /**
+     * Test of ProcessOrderNoTimeRecievedInStockSetTimeProcessedToNow
+     */
+    @Test
+    public void testProcessOrderNoTimeRecievedInStockSetTimeProcessedToNow() throws Exception {
+        OrderQueue orderQueue = new OrderQueue();
+        Order order = new Order("C0000001", "TEST Inc.");
+        order.addPurchase(new Purchase("PLC000001", 100));
+        order.addPurchase(new Purchase("PLC000002", 200));
+        orderQueue.addOrder(order);
+        
+        try {
+            Order nextOrder = orderQueue.getNextOrder();
+        } catch (Exception ex) {
+            assertTrue(false);
+        }
+        assertTrue(true);
+    }
 }
