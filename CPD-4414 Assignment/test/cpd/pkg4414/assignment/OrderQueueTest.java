@@ -77,4 +77,23 @@ public class OrderQueueTest {
         }
         assertTrue(flag);
     }
+    
+    /**
+     * Test of NextOrderExistsReturnEarliestOrderNotProcessed method, of class OrderQueue
+     */
+    @Test
+    public void testNextOrderExistsReturnEarliestOrderNotProcessed() throws Exception {
+        OrderQueue orderQueue = new OrderQueue();
+        Order order = new Order("C0000001", "TEST Inc.");
+        order.addPurchase(new Purchase("PLC000001", 100));
+        order.addPurchase(new Purchase("PLC000002", 200));
+        orderQueue.addOrder(order);
+        
+        try {
+            Order nextOrder = orderQueue.getNextOrder();
+        } catch (Exception ex) {
+            assertTrue(false);
+        }
+        assertTrue(true);
+    }
 }
