@@ -15,7 +15,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- *
+ * @author Jeff Codling - c0471944
  * @author Kyle Crossman - c0621990
  * @author Dylan Huculak - c0630163
  */
