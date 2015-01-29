@@ -23,6 +23,22 @@ public class Order {
         this.customerId = customerId;
         this.customerName = customerName;
     }
+    
+    public boolean processPurchases() {
+        boolean flag = true;
+        
+        for(Purchase p:purchases) {
+            if(p.getQuantity() > Inventory.getQuantityForId(p.getProductId())) {
+                flag = false;
+            }
+        }
+        
+        if(flag) {
+            this.setTimeProcessed(new Date());
+        }
+        
+        return flag;
+    }
 
     public String getCustomerId() {
         return customerId;

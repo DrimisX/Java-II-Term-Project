@@ -138,7 +138,7 @@ public class OrderQueueTest {
      * @throws Exception - addOrder if customer ID or name is not set
      */
     @Test
-    public void testProcessOrderNoTimeRecievedInStockSetTimeProcessedToNow() throws Exception {
+    public void testProcessOrderHasTimeRecievedInStockSetTimeProcessedToNow() throws Exception {
         OrderQueue orderQueue = new OrderQueue();
         Order order = new Order("C0000001", "TEST Inc.");
         order.addPurchase(new Purchase( 1, 10));
@@ -148,17 +148,9 @@ public class OrderQueueTest {
         Order nextOrder = orderQueue.getNextOrder();
         List<Purchase> purchases = nextOrder.getPurchases();
         
-        boolean flag = true;
+        boolean flag = order.processPurchases();
         
-        for(Purchase p: purchases) {
-            if(p.getQuantity() <= Inventory.getQuantityForId(p.getProductId())) {
-                
-            }
-        }
-        // Interate through purchases and check for stock in the inventory
-        // If there is stock, set time processed to now
-        
-        assertTrue(true);
+        assertTrue(flag);
     }
     
     /**
