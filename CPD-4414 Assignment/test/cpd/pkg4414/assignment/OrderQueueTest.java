@@ -52,8 +52,8 @@ public class OrderQueueTest {
     public void testWhenCustomerExistsAndPurchaseExistsThenTimeReceivedIsNow() throws Exception {
         OrderQueue orderQueue = new OrderQueue();
         Order order = new Order("C0000001", "TEST Inc.");
-        order.addPurchase(new Purchase("PLC000001", 100));
-        order.addPurchase(new Purchase("PLC000002", 200));
+        order.addPurchase(new Purchase( 1, 100));
+        order.addPurchase(new Purchase( 2, 200));
         orderQueue.addOrder(order);
         long expResult = new Date().getTime();
         long result = order.getTimeReceived().getTime();
@@ -72,8 +72,8 @@ public class OrderQueueTest {
     public void testNewOrderArrivesWithNoIdOrNameExists() throws Exception {
         OrderQueue orderQueue = new OrderQueue();
         Order order = new Order(null,null);
-        order.addPurchase(new Purchase("PLC000001",100));
-        order.addPurchase(new Purchase("PLC000002",200));
+        order.addPurchase(new Purchase( 1,100));
+        order.addPurchase(new Purchase( 2,200));
         
         boolean flag = false;
         
@@ -111,8 +111,8 @@ public class OrderQueueTest {
     public void testNextOrderExistsReturnEarliestOrderNotProcessed() throws Exception {
         OrderQueue orderQueue = new OrderQueue();
         Order order = new Order("C0000001", "TEST Inc.");
-        order.addPurchase(new Purchase("PLC000001", 100));
-        order.addPurchase(new Purchase("PLC000002", 200));
+        order.addPurchase(new Purchase( 1, 100));
+        order.addPurchase(new Purchase( 2, 200));
         orderQueue.addOrder(order);
         
         try {
@@ -141,13 +141,20 @@ public class OrderQueueTest {
     public void testProcessOrderNoTimeRecievedInStockSetTimeProcessedToNow() throws Exception {
         OrderQueue orderQueue = new OrderQueue();
         Order order = new Order("C0000001", "TEST Inc.");
-        order.addPurchase(new Purchase("PLC000001", 100));
-        order.addPurchase(new Purchase("PLC000002", 200));
+        order.addPurchase(new Purchase( 1, 10));
+        order.addPurchase(new Purchase( 2, 20));
         orderQueue.addOrder(order);
         
         Order nextOrder = orderQueue.getNextOrder();
         List<Purchase> purchases = nextOrder.getPurchases();
         
+        boolean flag = true;
+        
+        for(Purchase p: purchases) {
+            if(p.getQuantity() <= Inventory.getQuantityForId(p.getProductId())) {
+                
+            }
+        }
         // Interate through purchases and check for stock in the inventory
         // If there is stock, set time processed to now
         
