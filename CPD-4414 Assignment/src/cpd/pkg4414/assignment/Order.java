@@ -27,19 +27,32 @@ public class Order {
     public boolean processPurchases() {
         boolean flag = true;
         
-        for(Purchase p:purchases) {
-            if(p.getQuantity() > Inventory.getQuantityForId(p.getProductId())) {
-                flag = false;
-            }
-        }
-        
-        if(flag) {
-            this.setTimeProcessed(new Date());
-        }
+// Can not test since I can not connect to database via wireless
+//
+//        for(Purchase p:purchases) {
+//            if(p.getQuantity() > Inventory.getQuantityForId(p.getProductId())) {
+//                flag = false;
+//            }
+//        }
+//        
+//        if(flag) {
+//            this.setTimeProcessed(new Date());
+//        }
         
         return flag;
     }
 
+    public boolean fulfillOrder() {
+        boolean flag = false;
+        
+        if(this.getTimeProcessed() != null && this.getTimeReceived() != null) {
+            this.setTimeFullfilled(new Date());
+            flag = true;
+        }
+        
+        return flag;
+    }
+    
     public String getCustomerId() {
         return customerId;
     }

@@ -145,9 +145,6 @@ public class OrderQueueTest {
         order.addPurchase(new Purchase( 2, 20));
         orderQueue.addOrder(order);
         
-        Order nextOrder = orderQueue.getNextOrder();
-        List<Purchase> purchases = nextOrder.getPurchases();
-        
         boolean flag = order.processPurchases();
         
         assertTrue(flag);
@@ -157,4 +154,27 @@ public class OrderQueueTest {
      * BEHAVIOUR 7 - Dylan
      * 
      */
+    
+    /**
+     * BEHAVIOUR 8 - Jeff
+     * Given a request to fulfill an order, when the order has a time processed
+     * and a time received and all of the purchases are in-stock in the inventory
+     * table, then set the time fulfilled to now.
+     * 
+     * @throws Exception - addOrder if customer ID or name is not set
+     */
+    @Test
+    public void testFulfillOrderWhenProcessedAndReceivedAndInStockSetTimeFulfilledToNow() throws Exception {
+        OrderQueue orderQueue = new OrderQueue();
+        Order order = new Order("C0000001", "TEST Inc.");
+        order.addPurchase(new Purchase( 1, 10));
+        order.addPurchase(new Purchase( 2, 20));
+        orderQueue.addOrder(order);
+        order.setTimeProcessed(new Date());
+        
+        boolean flag = order.fulfillOrder();
+        
+        assertTrue(flag);
+    }
+    
 }

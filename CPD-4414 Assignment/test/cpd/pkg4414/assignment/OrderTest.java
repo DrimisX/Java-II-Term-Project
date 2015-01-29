@@ -5,6 +5,9 @@
  */
 package cpd.pkg4414.assignment;
 
+import static org.junit.Assert.assertTrue;
+import org.junit.Test;
+
 /**
  *
  * @author Jeff Codling - c0471944
@@ -14,4 +17,11 @@ public class OrderTest {
     public OrderTest() {
     }
     
+    /**
+     * Placeholder null test
+     */
+    @Test
+    public void testNothing() {
+        assertTrue(true);
+    }
 }
