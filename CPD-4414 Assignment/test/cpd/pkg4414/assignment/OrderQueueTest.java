@@ -42,7 +42,7 @@ public class OrderQueueTest {
     }
     
     /**
-     * BEHAVIOUR 1 - Len's Example
+     * BEHAVIOUR 1 - Len's Example (Modified by Dylan to adhere to 'Either' clause)
      * Test that 'Given a new order arrives, when either customer ID or customer name exists,
      * and there is a list of purchases, then time received is set to now.'
      * 
@@ -51,7 +51,7 @@ public class OrderQueueTest {
     @Test
     public void testWhenCustomerExistsAndPurchaseExistsThenTimeReceivedIsNow() throws Exception {
         OrderQueue orderQueue = new OrderQueue();
-        Order order = new Order("C0000001", "TEST Inc.");
+        Order order = new Order("C0000001");
         order.addPurchase(new Purchase( 1, 100));
         order.addPurchase(new Purchase( 2, 200));
         orderQueue.addOrder(order);
