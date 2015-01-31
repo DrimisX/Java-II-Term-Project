@@ -127,7 +127,19 @@ public class OrderQueueTest {
      * BEHAVIOUR 5 - Dylan
      * Test that 'Given a request for the next order, when there are no orders in the system, 
      * then return null.'
+     * @throws java.lang.Exception
      */
+    @Test
+    public void testNextOrderRequestedAndNoOrdersExistThenReturnNull() throws Exception {
+        OrderQueue orderQueue = new OrderQueue();
+        Order order = orderQueue.getNextOrder();
+        
+        Order expResult = null;
+        Order result = orderQueue.getNextOrder();
+        
+        assertTrue (expResult == result);
+
+    }
     
     /**
      * BEHAVIOUR 6 - Jeff
