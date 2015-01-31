@@ -95,9 +95,12 @@ public class OrderQueueTest {
     @Test
     public void testWhenNewOrderArrivesAndListOfPurchasesNotExistThenThrowException() throws Exception {
         OrderQueue orderQueue = new OrderQueue();
-        Order order = new Order("C0000001", "TEST Inc.");
+        Order order = new Order("C0000001");
         orderQueue.addOrder(order);
         
+        List<Purchase> purchases = order.getPurchases();
+        
+        assertTrue(purchases != null);
     }
     
     /**
