@@ -19,6 +19,11 @@ public class Order {
     private List<Purchase> purchases = new ArrayList<>();
     private String notes;
 
+    public Order(String customerId) {
+        this.customerId = customerId;
+        
+    }
+    
     public Order(String customerId, String customerName) {
         this.customerId = customerId;
         this.customerName = customerName;
