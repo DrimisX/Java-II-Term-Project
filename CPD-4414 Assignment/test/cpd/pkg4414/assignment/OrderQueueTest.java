@@ -218,6 +218,7 @@ public class OrderQueueTest {
      * BEHAVIOUR 9 - Dylan
      * Given a request to fulfill an order, when the order does not have a time processed, 
      * then throw an exception.
+     * @throws Exception - getTimeProcessed if getTime() does not return a time
      */
     @Test
     public void testProcessOrderDoesNotHaveTimeProcessed() throws Exception {
