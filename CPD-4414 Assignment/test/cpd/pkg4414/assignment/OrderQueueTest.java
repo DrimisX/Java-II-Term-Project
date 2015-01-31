@@ -93,7 +93,7 @@ public class OrderQueueTest {
      * @throws Exception - addOrder if Purchase List does not exist
      */
     @Test
-    public void testWhenNewOrderArrivesAndListOfPurchasesNotExistThenThrowException() throws Exception {
+    public void testWhenNewOrderArrivesAndListOfPurchasesNotExist() throws Exception {
         OrderQueue orderQueue = new OrderQueue();
         Order order = new Order("C0000001");
         orderQueue.addOrder(order);
@@ -211,6 +211,30 @@ public class OrderQueueTest {
         
         boolean flag = order.fulfillOrder();
         
+        assertTrue(flag);
+    }
+    
+    /**
+     * BEHAVIOUR 9 - Dylan
+     * Given a request to fulfill an order, when the order does not have a time processed, 
+     * then throw an exception.
+     */
+    @Test
+    public void testProcessOrderDoesNotHaveTimeProcessed() throws Exception {
+        OrderQueue orderQueue = new OrderQueue();
+        Order order = new Order("C0000001", "Test Inc.");
+        order.addPurchase(new Purchase( 1, 1));
+        orderQueue.addOrder(order);
+        
+        //long result = order.getTimeReceived().getTime();
+        
+        boolean flag = false;
+        
+        try {
+            order.getTimeProcessed().getTime();
+        } catch (Exception ex) {
+            flag = true;
+        }
         assertTrue(flag);
     }
     
