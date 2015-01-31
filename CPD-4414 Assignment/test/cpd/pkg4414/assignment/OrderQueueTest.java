@@ -167,8 +167,29 @@ public class OrderQueueTest {
     
     /**
      * BEHAVIOUR 7 - Dylan
-     * 
+     * Given a request to process an order, when the order does not have a time received, 
+     * then throw an exception
      */
+    @Test
+    public void testProcessOrderDoesNotHaveTimeReceived() throws Exception {
+        OrderQueue orderQueue = new OrderQueue();
+        Order order = new Order("C0000001", "Test Inc.");
+        order.addPurchase(new Purchase( 1, 1));
+        orderQueue.addOrder(order);
+        
+        //long result = order.getTimeReceived().getTime();
+        
+        boolean flag = false;
+        
+        try {
+            order.getTimeReceived().getTime();
+        } catch (Exception ex) {
+            flag = true;
+        }
+        assertTrue(flag);
+        
+    }
+    
     
     /**
      * BEHAVIOUR 8 - Jeff
