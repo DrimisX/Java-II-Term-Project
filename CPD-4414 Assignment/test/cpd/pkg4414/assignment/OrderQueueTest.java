@@ -46,7 +46,7 @@ public class OrderQueueTest {
      * Test that 'Given a new order arrives, when either customer ID or customer name exists,
      * and there is a list of purchases, then time received is set to now.'
      * 
-     * @throws Exception - addOrder is customer ID or name is not set
+     * @throws Exception - addOrder with Purchase List if Time Received is not now
      */
     @Test
     public void testWhenCustomerExistsAndPurchaseExistsThenTimeReceivedIsNow() throws Exception {
