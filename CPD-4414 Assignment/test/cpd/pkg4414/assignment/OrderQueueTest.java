@@ -90,7 +90,7 @@ public class OrderQueueTest {
      * Test that 'Given a new order arrives, when there is no list of purchases,
      * then throw an exception.'
      * 
-     * @throws Exception - addOrder if customer ID or name is not set
+     * @throws Exception - addOrder if Purchase List does not exist
      */
     @Test
     public void testWhenNewOrderArrivesAndListOfPurchasesNotExistThenThrowException() throws Exception {
