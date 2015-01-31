@@ -29,4 +29,10 @@ public class OrderQueue {
     public Order getNextOrder() {
         return orderQueue.getFirst();
     }
+    
+    public String getReport() {
+        String jsonData = ""; //Parse JSON Data into this string
+        
+        return jsonData;
+    }
 }
