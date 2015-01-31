@@ -245,7 +245,15 @@ public class OrderQueueTest {
     
     /**
      * BEHAVIOUR 11 - Dylan
+     * Given a request for a report, when there are no orders in the system, 
+     * then return an empty string
      */
+    @Test
+    public void testRequestReportAndNoOrdersExistThenReturnEmptyString() throws Exception {
+        OrderQueue orderQueue = new OrderQueue();
+        
+        
+    }
     
     /**
      * BEHAVIOUR 12 - Jeff
