@@ -30,7 +30,7 @@ public class OrderQueue {
         return orderQueue.getFirst();
     }
 
-        public String getReport() {
+    public String getReport() {
         String returnString = "{ \"orders\" : [\n";
         
         for(Order o : orderQueue) {
