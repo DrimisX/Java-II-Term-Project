@@ -53,8 +53,8 @@ public class OrderQueue {
                             //ITERATE THROUGH PURCHASES FOR EACH ORDER
                             for(Purchase a : o.getPurchases())  {
                                 //APPEND PURCHASE ID AND QUANTITY
-                                jsonData.append("\t\t\t{ \"productId\" : ").append(a.getProductId) 
-                                        .append(", \"quantity\" : ").append(a.getQuantity).append(" }");
+                                jsonData.append("\t\t\t{ \"productId\" : ").append(a.getProductId()) 
+                                        .append(", \"quantity\" : ").append(a.getQuantity()).append(" }");
                                 
                                 //ADD COMMA TO SEPARATE PURCHASES (REMOVE LATER IF NOT NEEDED)
                                 jsonData.append(",\n");
