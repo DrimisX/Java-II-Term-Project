@@ -241,7 +241,26 @@ public class OrderQueueTest {
     
     /**
      * BEHAVIOUR 10 - Jeff
+     * Given a request to fulfill an order, when the order does not have a time
+     * received, then throw an exception
      */
+    @Test
+    public void testRequestToFulfillWithNoTimeReceivedThrowException() {
+        OrderQueue orderQueue = new OrderQueue();
+        Order order = new Order(null,null);
+        order.addPurchase(new Purchase( 1,100));
+        order.addPurchase(new Purchase( 2,200));
+        
+        boolean flag = false;
+        
+        try {
+            order.fulfillOrder();
+        } catch (Exception ex) {
+            flag = true;
+        }
+        assertTrue(flag);
+    }
+    
     
     /**
      * BEHAVIOUR 11 - Dylan

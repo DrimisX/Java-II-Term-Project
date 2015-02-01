@@ -47,8 +47,12 @@ public class Order {
         return flag;
     }
 
-    public boolean fulfillOrder() {
+    public boolean fulfillOrder() throws Exception {
         boolean flag = false;
+        
+        if(this.getTimeReceived() == null) {
+            throw new Exception("Time received not defined.");
+        }
         
         if(this.getTimeProcessed() != null && this.getTimeReceived() != null) {
             this.setTimeFullfilled(new Date());
