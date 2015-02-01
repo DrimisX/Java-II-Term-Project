@@ -31,35 +31,30 @@ public class OrderQueue {
     }
     
     public String getReport() {
-        String jsonData = ""; //Parse JSON Data into this string
+        StringBuilder jsonData = new StringBuilder();
+        jsonData.append("");
         
         //IF THERE ARE ORDERS IN THE ARRAYDEQUEUE
         if (orderQueue.size()>0) {
             
             //BEGIN BUILDING STRING
-            jsonData = new StringBuilder()
-                    
-                    //OPENING DELIMITER FOR THE JSONDATA STRING
-                    .append("{ \"orders\" : [\n").toString();
+            jsonData.append("{ \"orders\" : [\n").toString();
             
                     //ITERATE THROUGH ORDERS FOR ORDERQUEUE
-                    for(Iterator itr = orderQueue.iterator();orderQueue.hasNext();)  {
-                        
-                        //System.out.println(itr.next()); //Comment example of simple iteration output (for reference)
+                    for (Order o : orderQueue) {
                         
                         //APPEND THE BASIC ORDER DETAILS
-                        jsonData.append("\t{ \"customerId\" : \"" + itr.getCustomerId() + "\",\n")
-                            .append("\t\t\"customerName\" : \"" + itr.getCustomerName + "\",\n")
-                            .append("\t\t\"timeReceived\" : \"" + itr.getTimeRecieved + "\",\n")
-                            .append("\t\t\"timeProcessed\" : \"" + itr.getTimeProcessed + "\",\n")
-                            .append("\t\t\"timeFulfilled\" : \"" + itr.getTimeFullfilled + "\",\n")
+                        jsonData.append("\t{ \"customerId\" : \"").append(getCustomerId()).append("\",\n")
+                            .append("\t\t\"customerName\" : \"").append(o.getCustomerName()).append("\",\n")
+                            .append("\t\t\"timeProcessed\" : \"").append(o.getTimeProcessed()).append("\",\n")
+                            .append("\t\t\"timeFulfilled\" : \"").append(o.getTimeFullfilled()).append("\",\n")
                             .append("\t\t\"purchases\" : [\n");
                         
                             //ITERATE THROUGH PURCHASES FOR EACH ORDER
-                            for(Iterator pItr = orderQueue.getPurchases().iterator();orderQueue.getPurchases().hasNext();)  {
+                            for(ArrayList a : purchases)  {
                                 //APPEND PURCHASE ID AND QUANTITY
-                                jsonData.append("\t\t\t{ \"productId\" : " + pItr.getProductId 
-                                        + ", \"quantity\" : " + pItr.getQuantity + " }");
+                                jsonData.append("\t\t\t{ \"productId\" : ").append(a.getProductId) 
+                                        .append(", \"quantity\" : ").append(a.getQuantity).append(" }");
                                 
                                 //IF THERE IS ANOTHER PURCHASE, ADD COMMA TO SEPARATE PURCHASES
                                 if (orderQueue.getPurchases().hasNext())
@@ -74,7 +69,7 @@ public class OrderQueue {
                             jsonData.append("\t\t],\n");
                             
                             //APPEND NOTES
-                            jsonData.append("\t\t\"notes\" : \"" + itr.getNotes + "\"\n");
+                            jsonData.append("\t\t\"notes\" : \"").append(o.getNotes).append("\"\n");
                         
                         //CLOSING DELIMITER FOR ORDER
                         jsonData.append("\t}");
@@ -93,6 +88,7 @@ public class OrderQueue {
 
         }
         
-        return jsonData;
+        String jsonString = jsonData.toString();
+        return jsonString;
     }
 }
