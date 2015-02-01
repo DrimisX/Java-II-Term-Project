@@ -56,13 +56,9 @@ public class OrderQueue {
                                 jsonData.append("\t\t\t{ \"productId\" : ").append(a.getProductId) 
                                         .append(", \"quantity\" : ").append(a.getQuantity).append(" }");
                                 
-                                //IF THERE IS ANOTHER PURCHASE, ADD COMMA TO SEPARATE PURCHASES
-                                if (orderQueue.getPurchases().hasNext())
-                                    jsonData.append(",\n");
+                                //ADD COMMA TO SEPARATE PURCHASES (REMOVE LATER IF NOT NEEDED)
+                                jsonData.append(",\n");
                                 
-                                else
-                                //ADD NEWLINE AT END OF PURCHASE
-                                jsonData.append("\n");
                             }
                             
                             //CLOSING DELIMITER FOR PURCHASES
@@ -74,13 +70,9 @@ public class OrderQueue {
                         //CLOSING DELIMITER FOR ORDER
                         jsonData.append("\t}");
                             
-                        //IF THERE IS ANOTHER ORDER, ADD COMMA TO SEPARATE ORDERS
-                        if (orderQueue.hasNext())
-                           jsonData.append(",\n");
+                        //ADD COMMA TO SEPARATE ORDERS (REMOVE LATER IF NOT NEEDED)
+                        jsonData.append(",\n");
                         
-                        else
-                        //ADD NEWLINE AT END OF ORDER    
-                        jsonData.append("\n");
                     }
                     
                     //CLOSING DELIMITER FOR JSONDATA
