@@ -51,7 +51,7 @@ public class OrderQueue {
                             .append("\t\t\"purchases\" : [\n");
                         
                             //ITERATE THROUGH PURCHASES FOR EACH ORDER
-                            for(ArrayList a : purchases)  {
+                            for(Purchase a : o.getPurchases())  {
                                 //APPEND PURCHASE ID AND QUANTITY
                                 jsonData.append("\t\t\t{ \"productId\" : ").append(a.getProductId) 
                                         .append(", \"quantity\" : ").append(a.getQuantity).append(" }");
