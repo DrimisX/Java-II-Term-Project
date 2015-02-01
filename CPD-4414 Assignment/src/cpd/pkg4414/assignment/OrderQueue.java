@@ -69,7 +69,7 @@ public class OrderQueue {
                             jsonData.append("\t\t],\n");
                             
                             //APPEND NOTES
-                            jsonData.append("\t\t\"notes\" : \"").append(o.getNotes).append("\"\n");
+                            jsonData.append("\t\t\"notes\" : \"").append(o.getNotes()).append("\"\n");
                         
                         //CLOSING DELIMITER FOR ORDER
                         jsonData.append("\t}");
