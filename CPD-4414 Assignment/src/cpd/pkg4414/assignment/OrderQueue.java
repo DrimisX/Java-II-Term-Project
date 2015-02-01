@@ -44,7 +44,7 @@ public class OrderQueue {
                     for (Order o : orderQueue) {
                         
                         //APPEND THE BASIC ORDER DETAILS
-                        jsonData.append("\t{ \"customerId\" : \"").append(getCustomerId()).append("\",\n")
+                        jsonData.append("\t{ \"customerId\" : \"").append(o.getCustomerId()).append("\",\n")
                             .append("\t\t\"customerName\" : \"").append(o.getCustomerName()).append("\",\n")
                             .append("\t\t\"timeProcessed\" : \"").append(o.getTimeProcessed()).append("\",\n")
                             .append("\t\t\"timeFulfilled\" : \"").append(o.getTimeFullfilled()).append("\",\n")
